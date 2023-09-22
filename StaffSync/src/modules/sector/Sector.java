@@ -1,8 +1,9 @@
 package modules.sector;
 
 import modules.providers.GenerateIdProvider;
+import modules.sector.interfaces.ISector;
 
-public class Sector {
+public class Sector implements ISector {
     private String id;
     private String name;
     private String employees;
@@ -37,20 +38,23 @@ public class Sector {
         this.employees = employees;
     }
     
+    @Override
     public Sector createSector(String id, String name, String employees) {
         return new Sector(id, name, employees);
     }
 
+    @Override
     public Sector updateSector(String id, String name, String employees) {
         return new Sector(id, name, employees);
     }
 
+    @Override
     public void deleteSector() {
         //Implement delete CRUD after create array's
     }
 
+    @Override
     public void listSector() {
         //Implement list CRUD
     }
 }
-
