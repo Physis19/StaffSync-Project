@@ -13,7 +13,7 @@ public class SectorManager implements ISectorManager {
         sectorList = new ArrayList<>();
     }
 
-    public Sector createSector(String id, String name, String description) {
+    public Sector createSector(String name, String description) {
         String newSectorId = GenerateIdProvider.generateId();
         Sector newSector = new Sector(newSectorId, name, new ArrayList<>(), description);
         sectorList.add(newSector);
