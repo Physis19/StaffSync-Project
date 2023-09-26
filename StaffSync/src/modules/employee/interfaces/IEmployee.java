@@ -1,10 +1,22 @@
 package modules.employee.interfaces;
 
 import modules.employee.Employee;
+import modules.sector.Sector;
 
 public interface IEmployee {
-    Employee createEmployee(String id, String nome, String Employees);
-    public void listEmployee();
-    public void deleteEmployee();
-    Employee updateEmployee(String id, String nome, String Employees);
+    String getId();
+    void setId(String id);
+
+    String getName();
+    void setName(String name);
+
+    Sector getSector();
+    void setSector(Sector sector);
+
+    String getRole();
+    void setRole(String role);
+
+    float getSalary();
+    void setSalary(float salary);
+    
 }

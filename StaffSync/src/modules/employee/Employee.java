@@ -2,17 +2,17 @@ package modules.employee;
 
 import modules.employee.interfaces.IEmployee;
 
-import modules.providers.GenerateIdProvider;
+import modules.sector.Sector;
 
 public class Employee implements IEmployee {
     private String id;
     private String name;
-    private String sector;
+    private Sector sector;
     private String role;
-    private String salary;
+    private float salary;
 
-    public Employee(String id, String name, String sector, String role, String salary) {
-        this.id = GenerateIdProvider.generateId();
+    public Employee(String id, String name, Sector sector, String role, float salary) {
+        this.id = id;
         this.name = name;
         this.sector = sector;
         this.role = role;
@@ -27,7 +27,7 @@ public class Employee implements IEmployee {
         return name;
     }
 
-    public String getSector() {
+    public Sector getSector() {
         return sector;
     }
 
@@ -35,7 +35,7 @@ public class Employee implements IEmployee {
         return role;
     }
 
-    public String getSalary() {
+    public float getSalary() {
         return salary;
     }
 
@@ -47,7 +47,7 @@ public class Employee implements IEmployee {
         this.name = name;
     }
 
-    public void setSector(String sector) {
+    public void setSector(Sector sector) {
         this.sector = sector;
     }
 
@@ -55,31 +55,8 @@ public class Employee implements IEmployee {
         this.role = role;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(float salary) {
         this.salary = salary;
     }
 
-    @Override
-    public Employee createEmployee(String id, String nome, String Employees) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'createEmployee'");
-    }
-
-    @Override
-    public void listEmployee() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listEmployee'");
-    }
-
-    @Override
-    public void deleteEmployee() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteEmployee'");
-    }
-
-    @Override
-    public Employee updateEmployee(String id, String nome, String Employees) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateEmployee'");
-    }
 }
