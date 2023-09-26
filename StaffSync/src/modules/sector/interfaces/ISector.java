@@ -1,11 +1,19 @@
 package modules.sector.interfaces;
 
+import java.util.List;
+
 import modules.employee.Employee;
-import modules.sector.Sector;
 
 public interface ISector {
-    Sector createSector(String id, String name, String description);
-    void listSector();
-    void deleteSector();
-    Sector updateSector(String id, String name, String Employees);
+    String getId();
+    void setId(String id);
+
+    String getName();
+    void setName(String name);
+
+    List<Employee> getEmployees();
+    void setEmployees(List<Employee> employees);
+
+    String getDescription();
+    void setDescription(String description);
 }

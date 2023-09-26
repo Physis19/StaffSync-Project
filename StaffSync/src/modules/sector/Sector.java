@@ -1,16 +1,18 @@
 package modules.sector;
 
-import modules.providers.GenerateIdProvider;
+import java.util.List;
+
+import modules.employee.Employee;
 import modules.sector.interfaces.ISector;
 
 public class Sector implements ISector {
     private String id;
     private String name;
-    private String employees;
+    private List<Employee> employees;
     private String description;
 
-    public Sector(String id, String name, String employees, String description) {
-        this.id = GenerateIdProvider.generateId();
+    public Sector(String id, String name, List<Employee> employees, String description) {
+        this.id = id;
         this.name = name;
         this.employees = employees;
         this.description = description;
@@ -32,11 +34,11 @@ public class Sector implements ISector {
         this.name = name;
     }
 
-    public String getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(String employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
@@ -48,23 +50,4 @@ public class Sector implements ISector {
         this.description = description;
     }
     
-    @Override
-    public Sector createSector(String id, String name, String description) {
-        return new Sector(id, name, employees, description);
-    }
-
-    @Override
-    public Sector updateSector(String id, String name, String employees) {
-        return new Sector(id, name, employees, description);
-    }
-
-    @Override
-    public void deleteSector() {
-        //Implement delete CRUD after create array's
-    }
-
-    @Override
-    public void listSector() {
-        //Implement list CRUD
-    }
 }
