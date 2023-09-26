@@ -2,6 +2,8 @@ package modules.employee;
 
 import modules.employee.interfaces.IEmployee;
 
+import modules.providers.GenerateIdProvider;
+
 public class Employee implements IEmployee {
     private String id;
     private String name;
@@ -10,7 +12,7 @@ public class Employee implements IEmployee {
     private String salary;
 
     public Employee(String id, String name, String sector, String role, String salary) {
-        this.id = id;
+        this.id = GenerateIdProvider.generateId();
         this.name = name;
         this.sector = sector;
         this.role = role;
@@ -80,8 +82,4 @@ public class Employee implements IEmployee {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateEmployee'");
     }
-
-    
-
-
 }

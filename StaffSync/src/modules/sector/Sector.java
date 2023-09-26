@@ -7,11 +7,13 @@ public class Sector implements ISector {
     private String id;
     private String name;
     private String employees;
+    private String description;
 
-    public Sector(String id, String name, String employees) {
+    public Sector(String id, String name, String employees, String description) {
         this.id = GenerateIdProvider.generateId();
         this.name = name;
         this.employees = employees;
+        this.description = description;
     }
 
     public String getId() {
@@ -37,15 +39,23 @@ public class Sector implements ISector {
     public void setEmployees(String employees) {
         this.employees = employees;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
     @Override
-    public Sector createSector(String id, String name, String employees) {
-        return new Sector(id, name, employees);
+    public Sector createSector(String id, String name, String description) {
+        return new Sector(id, name, employees, description);
     }
 
     @Override
     public Sector updateSector(String id, String name, String employees) {
-        return new Sector(id, name, employees);
+        return new Sector(id, name, employees, description);
     }
 
     @Override
