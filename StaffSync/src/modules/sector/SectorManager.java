@@ -3,6 +3,7 @@ package modules.sector;
 import java.util.ArrayList;
 import java.util.List;
 
+import modules.employee.Employee;
 import modules.providers.GenerateIdProvider;
 import modules.sector.interfaces.ISectorManager;
 
@@ -37,8 +38,10 @@ public class SectorManager implements ISectorManager {
         return null;
     }
 
-    public void updateSector(){
-
+    public void addEmployeeToSector(Sector sector, Employee employee) {
+        if (sector != null && employee != null) {
+            sector.addEmployee(employee);
+        }
     }
 
 }

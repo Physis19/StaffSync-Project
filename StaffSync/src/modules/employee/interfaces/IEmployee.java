@@ -1,6 +1,5 @@
 package modules.employee.interfaces;
 
-import modules.employee.Employee;
 import modules.sector.Sector;
 
 public interface IEmployee {

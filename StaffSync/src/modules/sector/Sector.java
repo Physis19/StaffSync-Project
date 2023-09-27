@@ -1,5 +1,6 @@
 package modules.sector;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import modules.employee.Employee;
@@ -14,7 +15,7 @@ public class Sector implements ISector {
     public Sector(String id, String name, List<Employee> employees, String description) {
         this.id = id;
         this.name = name;
-        this.employees = employees;
+        this.employees = new ArrayList<>();
         this.description = description;
     }
 
@@ -48,6 +49,10 @@ public class Sector implements ISector {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
     }
     
 }
