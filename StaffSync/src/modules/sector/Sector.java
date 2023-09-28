@@ -12,6 +12,10 @@ public class Sector implements ISector {
     private List<Employee> employees;
     private String description;
 
+    public Sector(String name) {
+        this.name = name;
+    }
+
     public Sector(String id, String name, List<Employee> employees, String description) {
         this.id = id;
         this.name = name;

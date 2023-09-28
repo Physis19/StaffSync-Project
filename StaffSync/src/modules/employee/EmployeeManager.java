@@ -6,9 +6,7 @@ import java.util.List;
 import modules.employee.interfaces.IEmployeeManager;
 import modules.providers.GenerateIdProvider;
 import modules.sector.Sector;
-
 public class EmployeeManager implements IEmployeeManager {
-
     private List<Employee> employeesList;
 
     public EmployeeManager() {
@@ -44,9 +42,21 @@ public class EmployeeManager implements IEmployeeManager {
     }
 
     @Override
-    public Employee updateEmployee(String id, String name, String Employees) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateEmployee'");
-    }
-    
+    public Employee updateEmployee(String id, String name, Sector sector, String role, float salary) {
+        for(Employee employees: employeesList) {
+            if(employees.getId().equals(id)) {
+                employees.setName(name);
+                employees.setRole(role);
+                employees.setSalary(salary);
+
+                if (!employees.getSector().getName().equals(sector.getName())) {
+                    employees.setSector(sector);
+                }
+
+                return employees;
+            }
+        }
+
+        return null;
+    }   
 }
