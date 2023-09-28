@@ -1,6 +1,6 @@
 package modules.providers;
 
-public class GenerateIdProvider {
+public class GenerateSectorIdProvider {
     private static int id = 0;
 
     public static synchronized String generateId() {

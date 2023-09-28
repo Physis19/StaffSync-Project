@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modules.employee.interfaces.IEmployeeManager;
-import modules.providers.GenerateIdProvider;
+import modules.providers.GenerateEmployeeIdProvider;
 import modules.sector.Sector;
+
 public class EmployeeManager implements IEmployeeManager {
     private List<Employee> employeesList;
 
@@ -15,9 +16,15 @@ public class EmployeeManager implements IEmployeeManager {
 
     @Override
     public Employee createEmployee(String name, Sector sector, String role, float salary) {
-        String newEmployeeId = GenerateIdProvider.generateId();
+        String newEmployeeId = GenerateEmployeeIdProvider.generateId();
+        
+        for (Employee existingEmployee : employeesList) {
+            if (existingEmployee.getId().equals(newEmployeeId)) {
+                throw new IllegalArgumentException("Já existe um funcionário com este ID.");
+            }
+        }
+        
         Employee newEmployee = new Employee(newEmployeeId, name, sector, role, salary);
-
         employeesList.add(newEmployee);
         return newEmployee;
     }
@@ -33,7 +40,7 @@ public class EmployeeManager implements IEmployeeManager {
                 return employee;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Funcionário com o ID especificado não encontrado.");
     }
 
     @Override
@@ -43,20 +50,19 @@ public class EmployeeManager implements IEmployeeManager {
 
     @Override
     public Employee updateEmployee(String id, String name, Sector sector, String role, float salary) {
-        for(Employee employees: employeesList) {
-            if(employees.getId().equals(id)) {
-                employees.setName(name);
-                employees.setRole(role);
-                employees.setSalary(salary);
+        for (Employee employee : employeesList) {
+            if (employee.getId().equals(id)) {
+                employee.setName(name);
+                employee.setRole(role);
+                employee.setSalary(salary);
 
-                if (!employees.getSector().getName().equals(sector.getName())) {
-                    employees.setSector(sector);
+                if (!employee.getSector().getName().equals(sector.getName())) {
+                    employee.setSector(sector);
                 }
 
-                return employees;
+                return employee;
             }
         }
-
-        return null;
+        throw new IllegalArgumentException("Funcionário com o ID especificado não encontrado para atualização.");
     }   
 }
