@@ -20,7 +20,7 @@ public class App {
             System.out.println("===================================");
             System.out.println("           MENU          ");
             System.out.println("===================================");
-            System.out.println("1 - Criar funcionário\n2 - Criar setor\n3 - Listar os funcionários\n4 - Obter funcionário pelo ID\n5 - Deletar funcionário\n6 - Deletar setor\n7 - Listar os setores\n8 - Obter setor pelo ID\n9 - Adicionar funcionário ao setor\n10 - Atualizar dados do funcionário");
+            System.out.println("1 - Criar funcionário\n2 - Criar setor\n3 - Listar os funcionários\n4 - Obter funcionário pelo ID\n5 - Deletar funcionário\n6 - Deletar setor\n7 - Listar os setores\n8 - Obter setor pelo ID\n9 - Atualizar dados do funcionário");
 
             System.out.print("\nDigite a sua opção ou -1 para sair: ");
             opcao = entrada.nextInt();
@@ -165,27 +165,6 @@ public class App {
 
                 case 9:
                     System.out.println("\n==========================================");
-                    System.out.println("       Adicionar funcionário ao setor       ");
-                    System.out.println("===========================================\n");
-
-                    Scanner entrada8 = new Scanner(System.in);
-
-                    System.out.print("Digite o ID do funcionário: ");
-                    String idAddEmployee = entrada8.nextLine();
-                    Employee addEmployee = employeeManager.getEmployeeById(idAddEmployee);
-
-                    System.out.print("Digite o ID do setor: ");
-                    String idEmployeeToSector = entrada8.nextLine();
-                    Sector addEmployeeSector = sectorManager.getSectorById(idEmployeeToSector);
-
-                    sectorManager.addEmployeeToSector(addEmployeeSector, addEmployee);
-
-                    System.out.println("\nFuncionário atribuído ao setor com sucesso!\n");
-
-                    break;
-                
-                case 10:
-                    System.out.println("\n==========================================");
                     System.out.println("       Atualizar funcionário       ");
                     System.out.println("===========================================\n");
 
@@ -216,7 +195,6 @@ public class App {
                     System.out.println("\nFuncionário atualizado com sucesso!\n");
 
                     break;
-
             }
         } while(opcao != -1);
         
