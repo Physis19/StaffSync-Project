@@ -43,5 +43,4 @@ public class SectorManager implements ISectorManager {
             sector.addEmployee(employee);
         }
     }
-
 }

@@ -10,5 +10,5 @@ public interface IEmployeeManager {
     List<Employee> getAllEmployees();
     Employee getEmployeeById(String id);
     public void deleteEmployee(Employee employee);
-    Employee updateEmployee(String id, String name, String Employees);
+    Employee updateEmployee(String id, String name, Sector sector, String role, float salary);
 }
